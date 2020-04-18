@@ -1,0 +1,56 @@
+<html>
+  <body id="welcome">
+	<app-manage-aside></app-manage-aside>
+  <br><br><br><br>
+  <div id="main-wrapper">
+    <div class="main-content">
+      <section id="installation">
+				<h2 class="title">Product List Manage</h2>
+        <div>
+          <form action="#">
+              <div class="form-group">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder='Search Product' onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'Search Keyword'">
+                    <div class="input-group-append">
+                    </div>
+                  </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+			</section>
+
+      <section id="tmpl-structure">
+				<h2 class="title"></h2>
+				<table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Description</th>
+              <th scope="col">Status</th>
+              <th scope="col">Image</th> 
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{product.id}}</td>
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+              <td>{{product.desc}}</td>
+              <td>{{product.status ?'Còn Hàng':'Hết Hàng'}}</td>
+              <td><a href="#"><img class="card-img-top" [src]="product.img" alt=""></a></td>
+              <td><button class="btn btn-outline-danger">View</button></td>
+              <td><button class="btn btn-outline-danger" routerLink="/product/edit/{{product.id}}">Edit</button></td>
+              <td><button class="btn btn-outline-danger" (click)="removeItem(product.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+			</section>
+    </div>
+  </div>
+</body>
+</html>

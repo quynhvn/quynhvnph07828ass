@@ -1,0 +1,24 @@
+<app-manage-aside></app-manage-aside>
+<br><br><br><br>
+<div id="main-wrapper">
+  <div class="main-content">
+    <form action="" class="w-50 mx-auto mt-3">
+      <h2>Edit Product</h2>
+      <br>
+      <div class="form-group">
+        Name: <input type="text" name="name" class="form-control"placeholder="Name" [(ngModel)]="product.name">
+        <br>
+        Price: <input type="text" name="price" class="form-control"placeholder="Price" [(ngModel)]="product.price">
+        <br>
+        Desc: <input type="text" name="desc" class="form-control"placeholder="Desc" [(ngModel)]="product.desc">
+        <br>
+        Image<input type="text" name="img" class="form-control"placeholder="img" [(ngModel)]="product.img">
+        <br>
+        Status: <input type="text" class="form-control" value="{{product.status ? 'Còn Hàng' : 'Hết Hàng'}}">
+        <input type="checkbox" name="status" class="form-control"[(ngModel)]="product.status" checked/>
+        <br>
+        <button type="submit" class="btn btn-primary" (click)="updateProduct()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
